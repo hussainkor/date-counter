@@ -47,14 +47,16 @@ function DateChanger(props) {
   date.setDate(date.getDate() + count);
 
   const checkDate =
-    count > 0 ? `${count} days from today is` : `${count} days ago was`;
+    count > 0 ? `${count} days from today is` : `${Math.abs(count)} days ago was`;
 
   const dater = count > 0 || count < 0 ? `${checkDate}` : "Today is";
 
   return (
     <div>
       <p>
-        {dater} {date.toDateString()}
+        {/* <span>{count === 0 ? "Today is " : count > 0 ? `${count} days from today is ` : `${Math.abs(count)} days ago was`}</span> */}
+        <span>{dater}</span>
+        <span>{date.toDateString()}</span>
       </p>
     </div>
   );
